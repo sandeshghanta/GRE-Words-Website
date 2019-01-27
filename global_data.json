@@ -1,0 +1,6 @@
+{
+	"wordlist_file_path": "Words/wordlist.txt",
+	"json_folder_path": "json_data",
+	"books_folder_path": "original books",
+	"sentences_folder_path": "sentences"
+}
