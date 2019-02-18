@@ -1,6 +1,17 @@
 {
-	"wordlist_file_path": "Words/wordlist.txt",
-	"json_folder_path": "json_data",
-	"books_folder_path": "original books",
-	"sentences_folder_path": "sentences"
+    "chunks_folder_path": {
+        "gutenberg": "chunks/gutenberg",
+        "many_books": "chunks/many_books"
+    },
+    "wordlist_file_path": "wordlist.txt",
+    "cores_count": 8,
+    "books_folder_path": {
+        "gutenberg": "books/gutenberg",
+        "many_books": "books/many_books"
+    },
+    "sentences_folder_path": {
+        "gutenberg": "sentences/gutenberg",
+        "many_books": "sentences/many_books"
+    },
+    "json_folder_path": "json_data"
 }

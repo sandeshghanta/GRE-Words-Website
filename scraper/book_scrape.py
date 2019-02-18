@@ -43,7 +43,8 @@ if __name__ == "__main__":
 	login_to_page()
 	page_no = 1
 	while (True):
-		url = "https://manybooks.net/search-book?field_genre%5B10%5D=10&field_genre%5B62%5D=62&field_genre%5B27%5D=27&field_genre%5B36%5D=36&language=All&search=&sort_by=field_downloads&page={}".format(str(page_no))
+		# url = "https://manybooks.net/search-book?field_genre%5B10%5D=10&field_genre%5B62%5D=62&field_genre%5B27%5D=27&field_genre%5B36%5D=36&language=All&search=&sort_by=field_downloads&page={}".format(str(page_no))
+		url = "https://manybooks.net/search-book?language=en&field_genre%5B68%5D=68&field_genre%5B69%5D=69&field_genre%5B15%5D=15&field_genre%5B16%5D=16&field_genre%5B29%5D=29&field_genre%5B57%5D=57&field_genre%5B44%5D=44&field_genre%5B17%5D=17&field_genre%5B30%5D=30&field_genre%5B56%5D=56&field_genre%5B11%5D=11&field_genre%5B58%5D=58&field_genre%5B12%5D=12&field_genre%5B27%5D=27&field_genre%5B36%5D=36&search=&sort_by=field_downloads&page={}".format(str(page_no))
 		driver.get(url)
 		anchor_elements = driver.find_elements_by_xpath("//a[@href]")
 		links = []
