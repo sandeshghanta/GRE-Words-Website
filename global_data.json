@@ -13,5 +13,9 @@
         "gutenberg": "sentences/gutenberg",
         "many_books": "sentences/many_books"
     },
-    "json_folder_path": "json_data"
+    "json_folder_path": "json_data",
+    "articles":{
+        "path": "chunks/articles",
+        "count": 0
+    }
 }

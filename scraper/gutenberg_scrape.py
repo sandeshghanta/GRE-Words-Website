@@ -3,8 +3,9 @@ import json
 import requests
 from bs4 import BeautifulSoup
 from global_functions import get_global_data
-
-urls = ["https://www.gutenberg.org/wiki/Category:History_Bookshelf","https://www.gutenberg.org/wiki/Category:Law_Bookshelf"]
+#https://www.gutenberg.org/wiki/Category:History_Bookshelf
+#https://www.gutenberg.org/wiki/Category:Law_Bookshelf
+urls = ["https://www.gutenberg.org/wiki/Category:Technology_Bookshelf","https://www.gutenberg.org/wiki/Category:Science_Bookshelf","https://www.gutenberg.org/wiki/Category:Social_Sciences_Bookshelf","https://www.gutenberg.org/wiki/Category:Social_Sciences_Bookshelf"]
 
 def download_book(link,book_id):
 	if ("http:" not in link):	#some links are like //www.gutenberg.org/files/17321/17321-0.txt
@@ -50,6 +51,7 @@ def scrape_all_books(link):
 if __name__ == "__main__":
 	global_data = get_global_data()
 	for url in urls:
+		print (url)
 		r = requests.get(url)
 		soup = BeautifulSoup(r.text,"lxml")
 		div = soup.find("div",{"id":"mw-pages"})

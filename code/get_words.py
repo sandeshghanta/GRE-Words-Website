@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 from global_functions import get_global_data
 
-def scrape_words_and_write_to_file():
+def scrape_words():
 	url = "https://www.vocabulary.com/lists/128536"
 	r = requests.get(url)
 	soup = BeautifulSoup(r.text,'html.parser')
@@ -12,37 +12,22 @@ def scrape_words_and_write_to_file():
 	wordlist = []
 	for tag in tags:
 		wordlist.append(tag.contents[0])
+	wordlist = clean_wordlist(wordlist)
+	return wordlist
+
+def write_words_to_file(wordlist):
 	with open(global_data['wordlist_file_path'],"w+") as file:
-		file.write(",".join(wordlist))
+		file.write("::".join(wordlist))
 
-def read_words_from_file():
-	#This function reads words from the global_words file
-	with open(global_data['wordlist_file_path'],"r") as file:
-		words = file.readline().split(',')
-	return words
-
-def clean_words(words):
+def clean_wordlist(wordlist):
 	#This function makes all words to lower_case and removes duplicates
-	for i in range(0,len(words)):
-		words[i] = words[i].lower()
-	words = list(set(words)) 	#to remove duplicates from the list
-	return words
-
-def split_words_to_files(words):
-	word_list = [{} for i in range(0,26)]
-	for word in words:
-		word_list[ord(word[0])-97][word] = []
-
-	char = 'a'
-	for lis in word_list:
-		with open("{}/{}_words.json".format(global_data['json_folder_path'],char),"w+") as file:
-			json.dump(lis,file,indent=4)
-		char = chr(ord(char)+1)
+	for i in range(0,len(wordlist)):
+		wordlist[i] = wordlist[i].lower()
+	wordlist = list(set(wordlist)) 	#to remove duplicates from the list
+	return wordlist
 
 if __name__ == "__main__":
 	global_data = get_global_data()
 	print ("Scraping words") #TRACK
-	scrape_words_and_write_to_file()
-	words = read_words_from_file()
-	words = clean_words(words)
-	split_words_to_files(words)
+	wordlist = scrape_words()
+	write_words_to_file(wordlist)

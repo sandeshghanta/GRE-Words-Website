@@ -6,17 +6,7 @@ import pickle
 import random
 from nltk import tokenize
 import multiprocessing
-
-def get_global_data():
-	#This function reads the global_data json file
-	with open("global_data.json","r") as file:
-		global_data = json.load(file)
-	return global_data
-
-def get_wordlist():
-	with open(global_data['wordlist_file_path'],'r') as wordlist_file:
-		wordlist = wordlist_file.read().split(',')
-	return wordlist
+from global_functions import get_global_data,get_wordlist
 
 def get_list_of_json_objs():
 	data = [{} for i in range(0,26)]
@@ -38,13 +28,13 @@ def reference_words(books_list,json_obj_list):
 			with open(chunk_path,'r') as chunk:
 				chunk_data = chunk.read()
 				sentences = chunk_data.split("::")
-				for sentence in sentences:
+				for sentence_index,sentence in enumerate(sentences):
 					words = re.split(', | |',sentence)
 					for word in words:
 						word = word.lower()
 						word = word.replace("\n","")
 						if (word in wordlist):
-							json_obj_list[ord(word[0])-97][word].append(book_source+"::"+book_name+"::"+chunk_name)
+							json_obj_list[ord(word[0])-97][word].append(book_source+"::"+book_name+"::"+chunk_name+"::"+str(sentence_index))
 	return json_obj_list
 
 if __name__ == "__main__":

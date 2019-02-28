@@ -1,6 +1,6 @@
 import os
 import json
-from global_functions import get_global_data,get_sys_args,update_global_data_file,create_folder,backup_global_data
+from global_functions import get_global_data,get_sys_args,update_global_data,create_folder,backup_global_data
 
 if __name__ == "__main__":
 	global_data = get_global_data()
@@ -19,15 +19,14 @@ if __name__ == "__main__":
 		#it auto adds it to the json obj and later writes it to the file. 
 		if (book_source not in global_data['chunks_folder_path']):
 			global_data['chunks_folder_path'][book_source] = os.path.join("chunks",book_source)
-			result = update_global_data_file(global_data)
+			result = update_global_data(global_data)
 			if (not result):
 				print ("FATAL Error, couldn't update global_data.json file. exiting execution of code")
 				exit(0)
-			result = create_folder(global_data['chunks_folder_path'][book_source])
-			if (not result):
-				print ("FATAL Error, couldn't create required folders. exiting execution of code")
-				exit(0)
-			backup_global_data(global_data)
+		result = create_folder(global_data['chunks_folder_path'][book_source])
+		if (not result):
+			print ("FATAL Error, couldn't create required folders. exiting execution of code")
+			exit(0)
 
 		for book_name in os.listdir(global_data['sentences_folder_path'][book_source]):
 			print ("Book: " + book_name)	#TRACK

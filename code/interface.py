@@ -29,15 +29,15 @@ def get_references(word):
 def get_sentences_from_refs(references,word,args,args_set):
 	sentences = []
 	for reference in references:
-		book_source,book_name,chunk_name = reference.split("::")
+		book_source,book_name,chunk_name,sentence_index = reference.split("::")
+		sentence_index = int(sentence_index)
 		if (args_set and book_source not in args):
 			continue
 		chunk_path = os.path.join(global_data['chunks_folder_path'][book_source],book_name,chunk_name)
 		with open(chunk_path,'r') as chunk:
 			sentences_in_chunk = chunk.read().split("::")
-			for sentence in sentences_in_chunk:
-				if word in sentence:
-					sentences.append(sentence)
+			sentence = sentences_in_chunk[sentence_index]
+			sentences.append(sentence)
 	return sentences
 
 if __name__ == "__main__":
@@ -60,4 +60,4 @@ if __name__ == "__main__":
 			else:
 				print ("No references found")
 		else:
-			print ("No references found")
+			print ("Invalid Word")
