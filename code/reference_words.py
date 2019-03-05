@@ -54,7 +54,6 @@ if __name__ == "__main__":
 				continue
 		for index,book_name in enumerate(os.listdir(global_data['books_folder_path'][book_source])):
 			books_list[index%global_data['cores_count']].append({"book_name":book_name,"book_source":book_source})
-	
 	pool = multiprocessing.Pool(processes=global_data['cores_count'])
 	args = [(books_list[i],process_json_obj_list[i]) for i in range(global_data['cores_count'])]
 	results = pool.starmap(reference_words,args)
