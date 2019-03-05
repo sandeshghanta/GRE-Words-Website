@@ -1,0 +1,24 @@
+{
+    "chunks_folder_path": {
+        "gutenberg": "chunks/gutenberg",
+        "many_books": "chunks/many_books",
+        "wikipedia": "chunks/wikipedia"
+    },
+    "wordlist_file_path": "wordlist.txt",
+    "cores_count": 8,
+    "books_folder_path": {
+        "gutenberg": "books/gutenberg",
+        "many_books": "books/many_books",
+        "wikipedia": "books/wikipedia"
+    },
+    "sentences_folder_path": {
+        "gutenberg": "sentences/gutenberg",
+        "many_books": "sentences/many_books",
+        "wikipedia": "sentences/wikipedia"
+    },
+    "json_folder_path": "json_data",
+    "articles": {
+        "storage_path": "chunks/articles",
+        "count": 0
+    }
+}
