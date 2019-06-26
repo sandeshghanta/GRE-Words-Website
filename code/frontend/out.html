@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Words2learn</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="style.css"/>
+<script src="code.js"></script>
+</head>
+<body>
+	<div id="container">
+		<div id="autocomplete">
+				<div class="search-bar">
+					<form autocomplete="off" id="form" action="#" onsubmit="search()">
+						<input type="text" id="input-box" class="form-control" placeholder="Search for words" oninput="shrink_container()">
+						<div class="search-button">
+							<button type ="submit" id="submit-button" class="btn btn-default" role="button">
+								<i class="fas fa-search"></i>
+							</button>
+						</div>
+					</form>
+				</div>
+		</div>
+		<div id="results">
+			<div class = "result">
+				<p>The way I did was to get two duplicate divs the first one is the visible content with position absolute and the second one is a div with visibility hidden that keeps the parent div with the correct height all works fine =D – Diogo Garcia Nov 9 '16 at 11:31</p>
+			</div>
+			<div class="result">
+				<p>This got me thinking in the right direction. In my case setting display: none on the "size holder" content makes the div not size, however opacity: 0, sizes the div correctly and doesn't require any additional jquery. – edencorbin Oct 19 '16 at 17:56</p>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
