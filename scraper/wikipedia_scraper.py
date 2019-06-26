@@ -7,11 +7,14 @@ from bs4 import BeautifulSoup
 from nltk import tokenize,word_tokenize
 from global_functions import remove_file,get_global_data,add_reference,is_relevant_sentence,get_wordlist,create_folder,is_text
 
+
 def get_sentences(text):
 	return tokenize.sent_tokenize(text)
 
+
 def get_words_from_sentence(sentence):
 	return word_tokenize(sentence)
+
 
 def extract_text(item):
 	if (isinstance(item,bs4.element.NavigableString)):
@@ -24,6 +27,7 @@ def extract_text(item):
 				if (child_text):
 					text += child_text 
 		return text
+
 
 def scrape_webiste(link):
 	r = requests.get(link)
@@ -49,6 +53,7 @@ def scrape_webiste(link):
 # 				flag = True
 # 	return flag
 
+
 def check_words(text):
 	#returns True if relevant words are found, else returns False
 	sentences = get_sentences(text)
@@ -58,6 +63,7 @@ def check_words(text):
 			if (word in wordlist and is_relevant_sentence(sentence,word)):
 				return True
 	return False
+
 
 def scrape(max_tries):
 	useful_documents = 0
@@ -78,9 +84,11 @@ def scrape(max_tries):
 		scraped = scraped + 1
 	return (useful_documents,scraped)
 
+
 def get_random_link():
 	r = requests.get("https://en.wikipedia.org/wiki/Special:Random")
 	return r.url
+
 
 if __name__ == "__main__":
 	max_tries = int(input("Enter no of docs to be scraped "))

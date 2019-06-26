@@ -1,0 +1,101 @@
+#container{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 20%;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+#empty-result{
+    display: none;
+}
+#input-box{
+    display: inline-block;
+    width: 95%;
+}
+input#input-box{
+    height: 50px;
+}
+button.btn.btn-default{
+    height: 50px;
+    width: 50px;
+}
+#results{
+    display: none;
+    width: 93%;
+    padding-left: 10px;
+    border: 1px solid;
+    border-radius: 2px 2px 2px 2px;
+    max-height: 70%;
+    overflow-x: hidden;
+    overflow-x: auto;
+    text-align:justify;
+
+}
+
+.search-bar{
+    display: inline-block;
+    width: 93%;
+}
+
+.result{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 7px;
+}
+
+.search-button{
+    display: inline-block;
+    position: absolute;
+    z-index:2000;
+}
+
+#autocomplete {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  padding-bottom: 15px;
+}
+
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+  cursor: pointer;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9;
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}
+
+

@@ -4,8 +4,10 @@ import random
 from global_functions import get_global_data,get_sys_args,update_global_data,create_folder,backup_global_data
 from nltk import tokenize
 
+
 def get_sentences(text):
 	return tokenize.sent_tokenize(text)
+
 
 if __name__ == "__main__":
 	args = get_sys_args()
@@ -18,11 +20,11 @@ if __name__ == "__main__":
 			if (book_source not in args):
 				continue
 		print ("SOURCE: " + book_source)	#TRACK
-		#Used to auto update the global_data.json file. 
-		#If a sentence folder path for a source does not exist 
-		#it auto adds it to the json obj and later writes it to the file.
+		# Used to auto update the global_data.json file.
+		# If a sentence folder path for a source does not exist
+		# it auto adds it to the json obj and later writes it to the file.
 		if (book_source not in global_data['sentences_folder_path']):
-			global_data['sentences_folder_path'][book_source] = os.path.join("sentences",book_source)
+			global_data['sentences_folder_path'][book_source] = os.path.join("sentences", book_source)
 			result = update_global_data(global_data)
 			if (not result):
 				print ("FATAL Error, couldn't update global_data.json file. exiting execution of code")
